@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symposium Project</title>
+    <link rel = "stylesheet" type = "text/css" href = "index.css" />
+        <script>
+                function initalize()
+                {
+                    setBoard();
+                }
+
+                function setBoard()
+                {
+                    var table = document.getElementById("myTable");
+                    var rows = 0;
+                    var cells = 0;
+                    while(rows != 10)
+                    {
+                        var row = table.insertRow(rows);
+                        var cells = row.insertCell(cells);
+                        rows++;
+                    }
+                }
+        </script>
+</head>
+<body onload = "initalize()">
+    <table id = "myTable">
+    </table>
+</body>
+</html>
