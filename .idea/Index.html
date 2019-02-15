@@ -7,14 +7,27 @@
         <script>
                 function initalize()
                 {
+                    Array = [];
+                    for(x = 1; x < 101; x++)
+                    {
+                        Array[x] = x;
+                    }
                     setBoard();
                 }
 
                 function setBoard()
                 {
                     boardArray = [];
-                    for(x = 0; x < 100; x++)
+                    for(x = 1; x < 100; x++)
                     {
+                        if(x%10 == 1 && (x%10)%2 != 0)
+                        {
+                            for(y = x+10; y > x; y--)
+                            {
+                                boardArray[x] = y;
+                            }
+                            x = x + 11;
+                        }
                         boardArray[x] = x;
                     }
 
