@@ -12,20 +12,16 @@
 
                 function setBoard()
                 {
-                    var table = document.getElementById("myTable");
-                    var rows = 0;
-                    var cells = 0;
-                    while(rows != 10)
+                    boardArray = [];
+                    for(x = 0; x < 100; x++)
                     {
-                        var row = table.insertRow(rows);
-                        var cells = row.insertCell(cells);
-                        rows++;
+                        boardArray[x] = x;
                     }
+
                 }
         </script>
 </head>
 <body onload = "initalize()">
-    <table id = "myTable">
-    </table>
+    <div class = "board"></div>
 </body>
 </html>
