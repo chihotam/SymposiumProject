@@ -7,30 +7,52 @@
         <script>
                 function initalize()
                 {
-                    setBoard();
+                    makeBoard();
+                    setUp();
                 }
 
-                function setBoard()
+                function makeBoard()
                 {
+                    var list = ["100",99,98,97,96,95,94,93,92,91,81,82,83,84,85,86,87,88,89,90,80,79,78,77,76,75,74,73,72,71,61,62,63,64,65,66,67,68,69,70,60,59,58,57,56,55,54,53,52,51,41,42,43,44,45,46,47,48,49,50,40,39,38,37,36,35,34,33,32,31,21,22,23,24,25,26,27,28,29,30,20,19,18,17,16,15,14,13,12,11,1,2,3,4,5,6,7,8,9,10];
+                    var count = 0;
+                    for(var x = 0; x < 100; x++)
+                    {
+                        br = document.createElement("br");
+                        if(x%10 == 0)
+                            document.getElementById("board").appendChild(br);
+                        text = document.createTextNode(list[count]);
+                        div = document.createElement("div");
+                        div.style.width = "75px";
+                        div.style.height = "75px";
+                        div.style.border = "1px solid black";
+                        div.style.display = "inline-block";
+                        div.id = count;
+                        div.appendChild(text);
+                        document.getElementById("board").appendChild(div);
+                        count++;
+                    }
+                }
 
+                function setUp(num)
+                {
+                    /*if(num == 1)
+                    one player and one computer
+                    else
+                    two players*/
+                }
+
+                function getRandomInteger()
+                {
+                    random = parseInt(Math.random() * 6) + 1;
+                    alert(random);
+	                document.getElementById("dice").value = Integer.toString(random);
                 }
         </script>
 </head>
 <body onload = "initalize()">
-    <table>
-        <tr>
-            <td>100</td>
-            <td>99</td>
-            <td>98</td>
-            <td>97</td>
-            <td>96</td>
-            <td>95</td>
-            <td>94</td>
-            <td>93</td>
-            <td>92</td>
-            <td>91</td>
-            <td>90</td>
-        </tr>
-    </table>
+    <div id = "board"></div>
+    <button onclick = "setUp(1);">One Player</button>
+    <button onclick = "setUp(2);">Two Players</button>
+    <button id = "dice" onlcick = "getRandomInteger();">Dice Roll</button>
 </body>
 </html>
