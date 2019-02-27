@@ -7,8 +7,16 @@
         <script>
                 function initalize()
                 {
+                    getPlayer();
                     makeBoard();
-                    setUp();
+                }
+
+                function getPlayer()
+                {
+                    data = location.search.split("?");
+                    amountPlayer = data[1].split("=")[0];
+                    alert(amountPlayer);
+                    start();
                 }
 
                 function makeBoard()
@@ -33,26 +41,39 @@
                     }
                 }
 
-                function setUp(num)
-                {
-                    /*if(num == 1)
-                    one player and one computer
-                    else
-                    two players*/
-                }
-
-                function getRandomInteger()
+                function getRandomInteger(type)
                 {
                     random = parseInt(Math.random() * 6) + 1;
-                    alert(random);
-	                document.getElementById("dice").value = Integer.toString(random);
+	                document.getElementById(type).innerHTML = random;
                 }
+
+                function start()
+                {
+                    if(amountPlayer == 1)
+                    {
+                        playerComputer();
+                        starterDice2.style = "display: none;";
+                    }
+                    else
+                        playerPlayer();
+                }
+
+                function playerComputer()
+                {
+                    //roll the dice to see who goes first
+
+                }
+
+                function playerPlayer()
+                {
+
+                }
+
         </script>
 </head>
 <body onload = "initalize()">
     <div id = "board"></div>
-    <button onclick = "setUp(1);">One Player</button>
-    <button onclick = "setUp(2);">Two Players</button>
-    <button id = "dice" onlcick = "getRandomInteger();">Dice Roll</button>
+    <button id = "starterDice" onclick = "getRandomInteger('starterDice');">Player One Dice</button>
+    <button id = "starterDice2" onclick = "getRandomInteger('starterDice2');">Player Two Dice</button>
 </body>
 </html>
