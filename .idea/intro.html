@@ -7,7 +7,13 @@
         <script>
             function initalize()
             {
-
+                characters = ["boo","bowser","bowserjr","daisy","diddykong","donkeykong","drybones","goomba","hammerbro","koopa","luigi","mario","montymole","peach","rosalina","shyguy","waluigi","wario","yoshi"];
+                for(x = 0; x < characters.length; x++)
+                {
+                    image = document.createElement("img");
+                    image.src = "images/" + characters[x] + ".png";
+                    document.getElementById("list").appendChild(image);
+                }
             }
         </script>
 </head>
@@ -15,6 +21,9 @@
     <form method = "get" action = "index.html">
         <input type = "submit" name = "1" value = "One Player"/>
         <input type = "submit" name = "2" value = "Two Player"/>
+        <div id = "list">
+                <img id = "image"/>
+        </div>
     </form>
 </body>
 </html>
