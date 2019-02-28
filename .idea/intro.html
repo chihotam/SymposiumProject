@@ -8,22 +8,32 @@
             function initalize()
             {
                 characters = ["boo","bowser","bowserjr","daisy","diddykong","donkeykong","drybones","goomba","hammerbro","koopa","luigi","mario","montymole","peach","rosalina","shyguy","waluigi","wario","yoshi"];
-                for(x = 0; x < characters.length; x++)
+                for(x = 0; x < characters.length-1; x++)
                 {
                     image = document.createElement("img");
-                    image.src = "images/" + characters[x] + ".png";
+                    char = characters[x];
+                    image.src = "images/" + char + ".png";
+                    image.onclick = "imageChoice('" + char + "');";
                     document.getElementById("list").appendChild(image);
                 }
             }
+
+            function imageChoice(pic)
+            {
+                document.getElementById("transferImg").value = pic;
+            }
+
         </script>
 </head>
 <body onload = "initalize()">
     <form method = "get" action = "index.html">
-        <input type = "submit" name = "1" value = "One Player"/>
-        <input type = "submit" name = "2" value = "Two Player"/>
+        <input type = "button" name = "1" value = "One Player"/>
+        <input type = "button" name = "2" value = "Two Player"/>
         <div id = "list">
                 <img id = "image"/>
         </div>
+        <input type = "hidden" id = "transferImg" name = "image"/>
+        <input type = "submit" value = "Set Player Choice"/>
     </form>
 </body>
 </html>
