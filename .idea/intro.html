@@ -13,7 +13,7 @@
                     image = document.createElement("img");
                     char = characters[x];
                     image.src = "images/" + char + ".png";
-                    image.onclick = "imageChoice('" + char + "');";
+                    image.onclick = imageChoice(char);
                     document.getElementById("list").appendChild(image);
                 }
             }
